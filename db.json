@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "name": "Quang",
+      "age": "21",
+      "gender": "male",
+      "id": "rIfxpFtGZ"
+    },
+    {
+      "name": "Hoàng Ân",
+      "age": "23",
+      "gender": "male",
+      "id": "gbkTLptQA"
+    },
+    {
+      "name": "Ý Nhi",
+      "age": "22",
+      "gender": "female",
+      "id": "FUgd9mO82"
+    },
+    {
+      "name": "Minh Thư",
+      "age": "24",
+      "gender": "female",
+      "id": "S5ze1_wSW"
+    },
+    {
+      "name": "Trúc Trúc",
+      "age": "22",
+      "gender": "female",
+      "id": "903Wqi88j"
+    },
+    {
+      "name": "Lâm",
+      "age": "22",
+      "gender": "male",
+      "id": "jRCpZ-1iK"
+    },
+    {
+      "name": "Chu Nguyên Chương",
+      "age": "33",
+      "gender": "male",
+      "id": "IOc_LUiEH"
+    },
+    {
+      "name": "Chu Nguyên Chương",
+      "age": "33",
+      "gender": "male",
+      "id": "zJDLMtxgM"
+    },
+    {
+      "name": "Lương",
+      "age": "33",
+      "gender": "male",
+      "id": "YTwOs-1vs"
+    },
+    {
+      "name": "Hoa Linh",
+      "age": "23",
+      "gender": "male",
+      "id": "xiJ8OWneB"
+    },
+    {
+      "name": "Ớ",
+      "age": "12",
+      "gender": "male",
+      "id": "oGlM9bAtN"
+    }
+  ],
+  "account": [
+    {
+      "name": "Hoàng Ân",
+      "username": "ansama",
+      "password": "123456",
+      "id": "e6A8mO9tI"
+    },
+    {
+      "name": "Trúc Trúc",
+      "username": "tructruc98",
+      "password": "290998",
+      "id": "73Y2AcQRg"
+    }
+  ]
+}

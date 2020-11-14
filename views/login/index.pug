@@ -1,0 +1,20 @@
+extends ../layout/template
+
+block item
+	div(class="container d-flex justify-content-center")
+	
+		div(class="row")
+			form(action="/login/signin" method="post")
+				label 
+					b Username 
+				br
+				input(type="text" name="username")
+				br
+				label 
+					b Password 
+				br
+				input(type="password" name="pass")
+				p(style="color:red")= err
+				button(type="submit" class="btn btn-primary") login
+			
+	

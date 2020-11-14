@@ -1,8 +1,13 @@
 h1 This is User list
-form(action="/user/search")
-	input(type="text", name="q")
-	p= value
+form(action="/users/search")
+	input(type="text", name="q", value=value)
+	p
 	button Search
 ul 
 	each user in users
 		li= user.name
+			span &nbsp
+			a(href='/users/' + user.id style="text-decoration:none") View
+
+button 
+	a(href="/users/create" style="text-decoration: none") Create User
