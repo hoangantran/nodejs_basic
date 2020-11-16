@@ -1,16 +1,28 @@
 extends ./layout/template
 
 block item
-	h1 Hi, Ansama
-	h5 How are the today?
-	input(type="text" placeholder="Tell me your feel..")
-	div(style="padding-left:720px; padding-top:250px")
-		
-		button 
-			a(href="/login" style="text-decoration:none") 
-				b Login
-		p
-
-		button
-			a(href="/users" style="text-decoration:none") 
-				b Users List
+	div(class="container-fluid")
+		div(class="row")
+			div(class="menu")
+				a(href="/")
+					img(src="/images/metro.png" width="70px" height="70px")
+				ul(class="nav")
+					li(class="nav-item") 
+						a(class="nav-link", href="/") Home
+					li(class="nav-item") 
+						a(class="nav-link", href="/users") Users
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") Contact
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") About us
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") Login
+					li(class="nav-item dropdown") 
+						a(class="nav-link dropdown-toggle dropdown", href="") Version
+						ul(class="sub-menu")
+							li
+								a(href="") 1.0
+							li
+								a(href="") 2.0
+							li
+								a(href="") 3.0
