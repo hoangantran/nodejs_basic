@@ -4,25 +4,46 @@ block item
 	div(class="container-fluid")
 		div(class="row")
 			div(class="menu")
-				a(href="/")
+				a(href="/", class="col-sm-1")
 					img(src="/images/metro.png" width="70px" height="70px")
-				ul(class="nav")
+				ul(class="nav col-sm-9")
 					li(class="nav-item") 
 						a(class="nav-link", href="/") Home
 					li(class="nav-item") 
 						a(class="nav-link", href="/users") Users
 					li(class="nav-item") 
-						a(class="nav-link", href="/login") Contact
+						a(class="nav-link", href="/contact") Contact
 					li(class="nav-item") 
 						a(class="nav-link", href="/login") About us
 					li(class="nav-item") 
 						a(class="nav-link", href="/login") Login
-					li(class="nav-item dropdown") 
-						a(class="nav-link dropdown-toggle dropdown", href="") Version
-						ul(class="sub-menu")
-							li
-								a(href="") 1.0
-							li
-								a(href="") 2.0
-							li
-								a(href="") 3.0
+				button(class="btn btn-outline-warning btn-download col-sm-1") Download
+		div(class="col-sm-12 p-5 d-flex")
+			.col-sm-3
+				.card(style='width: 18rem;')
+					img(src="https://loremflickr.com/200/300")
+					.card-body
+						h5.card-title Pets
+					p.card-text.p-2 Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+					a.btn.btn-primary(href='#') Go somewhere
+			.col-sm-3
+				.card(style='width: 18rem;')
+					img(src="https://picsum.photos/200/300")
+					.card-body
+						h5.card-title Technology
+					p.card-text.p-2 Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+					a.btn.btn-primary(href='#') Go somewhere
+			.col-sm-3
+				.card(style='width: 18rem;')
+					img(src="https://picsum.photos/seed/picsum/200/300")
+					.card-body
+						h5.card-title Static Random Image
+					p.card-text.p-2 Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+					a.btn.btn-primary(href='#') Go somewhere
+			.col-sm-3
+				.card(style='width: 18rem;')
+					img(src="https://picsum.photos/200/300?grayscale")
+					.card-body
+						h5.card-title Grayscale
+					p.card-text.p-2 Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+					a.btn.btn-primary(href='#') Go somewhere

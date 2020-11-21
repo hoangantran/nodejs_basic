@@ -7,21 +7,21 @@ module.exports.index = function(req, res){
 }
 
 module.exports.signin = function(req, res){
-	var acc = req.body.username;
-	var pass = req.body.pass;
-
+	var username = req.body.username;
+	var password = req.body.pass;
 	var login = db.get('account').value().filter(function(user) {
-		return user.username == acc && user.password == pass;
+		return user.username == username && user.password == password;
 	});
 
 	if(login != '') {
 		res.render('login/access',{
-			user : login
+			users : login
 		});
 	}
 	else{
 		res.render('login/index',{
-			err: "Error by Username or Password"
+			err: "Error by Username or Password!!!",
+			values: req.body
 		});
 	}
 }

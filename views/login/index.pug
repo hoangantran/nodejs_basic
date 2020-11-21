@@ -1,20 +1,41 @@
 extends ../layout/template
 
 block item
-	div(class="container d-flex justify-content-center")
-	
+	div(class="container-fluid")
 		div(class="row")
-			form(action="/login/signin" method="post")
-				label 
-					b Username 
-				br
-				input(type="text" name="username")
-				br
-				label 
-					b Password 
-				br
-				input(type="password" name="pass")
-				p(style="color:red")= err
-				button(type="submit" class="btn btn-primary") login
+			div(class="menu")
+				a(href="/", class="col-sm-1")
+					img(src="/images/metro.png" width="70px" height="70px")
+				ul(class="nav col-sm-9")
+					li(class="nav-item") 
+						a(class="nav-link", href="/") Home
+					li(class="nav-item") 
+						a(class="nav-link", href="/users") Users
+					li(class="nav-item") 
+						a(class="nav-link", href="/contact") Contact
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") About us
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") Login
+				button(class="btn btn-outline-warning btn-download col-sm-1") Download
+		div(class="row")
+		dic(class="row")
+			span &nbsp
+		div(class="row col-sm-12")
+			.col-sm-4
+			.col-sm-4.p-5(style="border: solid 1px #6f42c1")
+				h2 Login Account
+				if err
+					.alert.alert-danger= err
+				form(method="post" action="/login/signin")
+						.form-group
+							label Username
+							input#exampleInputEmail1.form-control(type='text', name="username")
+						.form-group
+							label Password
+							input#exampleInputPassword1.form-control(type='password', name="pass")
+						br
+						button.btn.btn-primary(type='submit') Login
+				a(href="/login/signup") Create Acccount
 			
 	

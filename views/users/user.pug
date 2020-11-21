@@ -1,13 +1,56 @@
-h1 This is User list
-form(action="/users/search")
-	input(type="text", name="q", value=value)
-	p
-	button Search
-ul 
-	each user in users
-		li= user.name
-			span &nbsp
-			a(href='/users/' + user.id style="text-decoration:none") View
+extends ../layout/template
 
-button 
-	a(href="/users/create" style="text-decoration: none") Create User
+block item
+	div(class="container-fluid")
+		div(class="row")
+			div(class="menu")
+				a(href="/", class="col-sm-1")
+					img(src="/images/metro.png" width="70px" height="70px")
+				ul(class="nav col-sm-9")
+					li(class="nav-item") 
+						a(class="nav-link", href="/") Home
+					li(class="nav-item") 
+						a(class="nav-link", href="/users") Users
+					li(class="nav-item") 
+						a(class="nav-link", href="/contact") Contact
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") About us
+					li(class="nav-item") 
+						a(class="nav-link", href="/login") Login
+				button(class="btn btn-outline-warning btn-download col-sm-1") Download
+block content
+	br
+	form.form-inline.col-sm-10(action="/users/search")
+		.form-group.mb-2.col-sm-10
+			input.form-control.col-sm-10(type='text', placeholder='Write keyword...', name='q', value= value)
+		button.btn.btn-primary.mb-2(type='submit') Search
+	div(class="row create")
+		a.btn.btn-primary(href="/users/create") Create User
+	div(class="row p-5")
+		div(class="table")
+			table.table
+				thead.thead-dark
+					tr
+						th(scope="col") Name
+						th(scope="col") Age
+						th(scope="col") Gender
+						th(scope="col") Phone
+						th(scope="col", colspan="2")
+				tbody
+					each user in users
+						tr
+							td= user.name
+							td= user.age
+							td= user.gender
+							td= user.phone
+							td
+								a(href='/users/' + user.id style="text-decoration:none") View
+							td 
+								a(href="")
+									img(width="30px" height="30px" src="/images/remove.png")
+					  
+							
+			
+			    
+				
+			

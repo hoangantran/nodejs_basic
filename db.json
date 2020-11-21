@@ -2,69 +2,80 @@
   "users": [
     {
       "name": "Quang",
+      "phone": "0349828323",
       "age": "21",
       "gender": "male",
       "id": "rIfxpFtGZ"
     },
     {
       "name": "Hoàng Ân",
+      "phone": "0349821344",
       "age": "23",
       "gender": "male",
       "id": "gbkTLptQA"
     },
     {
       "name": "Ý Nhi",
+      "phone": "0349434323",
       "age": "22",
       "gender": "female",
       "id": "FUgd9mO82"
     },
     {
       "name": "Minh Thư",
+      "phone": "0963435677",
       "age": "24",
       "gender": "female",
       "id": "S5ze1_wSW"
     },
     {
       "name": "Trúc Trúc",
+      "phone": "0226534023",
       "age": "22",
       "gender": "female",
       "id": "903Wqi88j"
     },
     {
-      "name": "Lâm",
-      "age": "22",
-      "gender": "male",
-      "id": "jRCpZ-1iK"
+      "name": "Trần Yến",
+      "age": "17",
+      "phone": "0349282768",
+      "gender": "female",
+      "id": "n6PzcT4wu"
     },
     {
-      "name": "Chu Nguyên Chương",
+      "name": "Hải Nhân",
+      "age": "21",
+      "phone": "0349282768",
+      "gender": "male",
+      "id": "_QjbPv4X2"
+    },
+    {
+      "name": "Lâu Linh",
       "age": "33",
-      "gender": "male",
-      "id": "IOc_LUiEH"
+      "phone": "0349282768",
+      "gender": "female",
+      "id": "tdb3A1jEm"
     },
     {
-      "name": "Chu Nguyên Chương",
-      "age": "33",
-      "gender": "male",
-      "id": "zJDLMtxgM"
-    },
-    {
-      "name": "Lương",
-      "age": "33",
-      "gender": "male",
-      "id": "YTwOs-1vs"
-    },
-    {
-      "name": "Hoa Linh",
-      "age": "23",
-      "gender": "male",
-      "id": "xiJ8OWneB"
-    },
-    {
-      "name": "Ớ",
+      "name": "Hoàng Ân",
       "age": "12",
+      "phone": "32132131",
       "gender": "male",
-      "id": "oGlM9bAtN"
+      "id": "runAAj2l3"
+    },
+    {
+      "name": "Ý Nhi",
+      "age": "12",
+      "phone": "0349282768",
+      "gender": "male",
+      "id": "xnaFaDJ7e"
+    },
+    {
+      "name": "Hoàng Ân",
+      "age": "21",
+      "phone": "0349282768",
+      "gender": "male",
+      "id": "Y9d-xzv-L"
     }
   ],
   "account": [
@@ -79,6 +90,24 @@
       "username": "tructruc98",
       "password": "290998",
       "id": "73Y2AcQRg"
+    },
+    {
+      "name": "Ý Nhi",
+      "username": "nhinhi123",
+      "password": "123456",
+      "id": "MxQp1V0LC"
+    },
+    {
+      "name": "Lưu Bị",
+      "username": "luubi3q",
+      "password": "123456",
+      "id": "eNdpSJFkD"
+    },
+    {
+      "name": "Hoàng Ân",
+      "username": "ansama404",
+      "password": "11111",
+      "id": "71ZvjnLev"
     }
   ]
 }

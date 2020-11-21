@@ -21,18 +21,18 @@ module.exports.search = function(req, res) {
 
 module.exports.getCreate = function(req, res){
 	res.render('users/create');
+	console.log(req.cookies);
 }
 
 module.exports.postCreate = function (req, res) {
 	req.body.id = shortid.generate();
- 	db.get('users').push(req.body).write();
- 	res.redirect('/users');
+	db.get('users').push(req.body).write();
+	res.redirect('/users');
 }
 
 module.exports.find = function(req, res){
 	var id = req.params.id;
 	var info = db.get('users').find({ id : id }).value();
-
 	res.render('users/view', {
 		user : info
 	});
