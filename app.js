@@ -3,13 +3,16 @@ var app = express();
 
 var post = 3000;
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+var md5 = require('md5');
 
 var db = require('./db');
 
 var userRoute = require('./routes/users.route');
 
 var loginRoute = require('./routes/login.route');
+
+var authMiddleware = require('./middleware/auth.middleware');
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -33,7 +36,7 @@ app.get('/contact', function(req, res){
 
 app.use('/login', loginRoute);
 
-app.use('/users', userRoute);
+app.use('/users', authMiddleware.auth, userRoute);
 
 app.listen(post, () => {
 	console.log('hello ansama');

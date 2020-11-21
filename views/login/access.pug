@@ -1,23 +1,6 @@
 extends ../layout/template
 
 block item
-	div(class="container-fluid")
-		div(class="row")
-			div(class="menu")
-				a(href="/", class="col-sm-1")
-					img(src="/images/metro.png" width="70px" height="70px")
-				ul(class="nav col-sm-9")
-					li(class="nav-item") 
-						a(class="nav-link", href="/") Home
-					li(class="nav-item") 
-						a(class="nav-link", href="/users") Users
-					li(class="nav-item") 
-						a(class="nav-link", href="/contact") Contact
-					li(class="nav-item") 
-						a(class="nav-link", href="/login") About us
-					li(class="nav-item") 
-						a(class="nav-link", href="/login") Login
-				button(class="btn btn-outline-warning btn-download col-sm-1") Download
 		div(class="row p-5")
 			.alert.alert-success(role='alert')
 				h4.alert-heading Well done!
@@ -25,5 +8,4 @@ block item
 				hr
 				p.mb-0 Dear,
 					span &nbsp
-					each user in users
-						u= user.name
+						u= users.name

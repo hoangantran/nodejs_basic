@@ -1,46 +1,28 @@
 extends ../layout/template
 
 block item
-	div(class="container-fluid")
-		div(class="row")
-			div(class="menu")
-				a(href="/", class="col-sm-1")
-					img(src="/images/metro.png" width="70px" height="70px")
-				ul(class="nav col-sm-9")
-					li(class="nav-item") 
-						a(class="nav-link", href="/") Home
-					li(class="nav-item") 
-						a(class="nav-link", href="/users") Users
-					li(class="nav-item") 
-						a(class="nav-link", href="/contact") Contact
-					li(class="nav-item") 
-						a(class="nav-link", href="/login") About us
-					li(class="nav-item") 
-						a(class="nav-link", href="/login") Login
-				button(class="btn btn-outline-warning btn-download col-sm-1") Download
-block content
-		div(class="row p-5 col-sm-12")
-			div.col-sm-2
-			div.col-sm-8
-				h2 Create User
-				if errors
-					each err in errors
-						.alert.alert-danger= err
-				form(method="post" action="/users/create")
-					.form-group
-						label User Name
-						input#exampleInputEmail1.form-control(type='text', name="name", value= values ? values.name : "")
-					.form-group
-						label User Age
-						input#exampleInputPassword1.form-control(type='number', name='age', value= values ? values.age : "")
-					.form-group
-						label User Phone
-						input#exampleInputPassword1.form-control(type='number', name='phone', value= values ? values.phone : "")
-					.form-check
-						input.form-check-input(type='radio', name='gender', value='male', checked)
-						label Male
-					.form-check
-						input.form-check-input(type='radio', name='gender', value='female')
-						label Female
-					br
-					button.btn.btn-primary(type='submit') Create
+	div(class="row p-5 col-sm-12")
+		div.col-sm-2
+		div.col-sm-8
+			h2 Create User
+			if errors
+				each err in errors
+					.alert.alert-danger= err
+			form(method="post" action="/users/create")
+				.form-group
+					label User Name
+					input#exampleInputEmail1.form-control(type='text', name="name", value= values ? values.name : "")
+				.form-group
+					label User Age
+					input#exampleInputPassword1.form-control(type='number', name='age', value= values ? values.age : "")
+				.form-group
+					label User Phone
+					input#exampleInputPassword1.form-control(type='number', name='phone', value= values ? values.phone : "")
+				.form-check
+					input.form-check-input(type='radio', name='gender', value='male', checked)
+					label Male
+				.form-check
+					input.form-check-input(type='radio', name='gender', value='female')
+					label Female
+				br
+				button.btn.btn-primary(type='submit') Create

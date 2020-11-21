@@ -1,6 +1,7 @@
 var express = require('express');
 var db = require('../db');
 var shortid = require('shortid');
+var md5 = require('md5');
 
 module.exports.index = function(req, res){
 	res.render('login/index'); 
@@ -8,22 +9,26 @@ module.exports.index = function(req, res){
 
 module.exports.signin = function(req, res){
 	var username = req.body.username;
-	var password = req.body.pass;
-	var login = db.get('account').value().filter(function(user) {
-		return user.username == username && user.password == password;
-	});
+	var password = md5(req.body.password);
+	var user = db.get('account').find({username : username}).value();
 
-	if(login != '') {
-		res.render('login/access',{
-			users : login
-		});
-	}
-	else{
+	if(!user){
 		res.render('login/index',{
-			err: "Error by Username or Password!!!",
+			err: "Account not Exits",
 			values: req.body
 		});
+		return;
 	}
+
+	if(user.password !== password){
+		res.render('login/index',{
+			err: "Wrong password",
+			values: req.body
+		});
+		return;
+	}
+	res.cookie('userId', user.id);
+	res.redirect('/users');
 }
 
 module.exports.getSignup = function(req, res){
@@ -32,6 +37,7 @@ module.exports.getSignup = function(req, res){
 
 module.exports.postSignup = function(req, res){
 	req.body.id = shortid.generate();
+	req.body.password = md5(req.body.password);
 	db.get('account').push(req.body).write();
 	res.redirect('/login')
 }
