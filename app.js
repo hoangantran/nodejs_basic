@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 
@@ -21,7 +23,7 @@ var shortid = require('shortid');
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.SIGNED_KEY));
 app.use(express.static('public'));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
