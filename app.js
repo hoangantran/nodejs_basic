@@ -14,6 +14,8 @@ var userRoute = require('./routes/users.route');
 
 var loginRoute = require('./routes/login.route');
 
+var productRoute = require('./routes/products.route');
+
 var authMiddleware = require('./middleware/auth.middleware');
 
 app.set('view engine', 'pug');
@@ -39,6 +41,8 @@ app.get('/contact', function(req, res){
 app.use('/login', loginRoute);
 
 app.use('/users', authMiddleware.auth, userRoute);
+
+app.use('/products', productRoute);
 
 app.listen(post, () => {
 	console.log('hello ansama');

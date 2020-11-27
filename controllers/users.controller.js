@@ -1,5 +1,7 @@
 var db = require('../db');
 var shortid = require('shortid');
+var multer  = require('multer');
+var upload = multer({ dest: './public/uploads/' });
 
 module.exports.index = function(req, res){
 	res.render('users/user', {
@@ -26,6 +28,7 @@ module.exports.getCreate = function(req, res){
 
 module.exports.postCreate = function (req, res) {
 	req.body.id = shortid.generate();
+	req.body.avatar = req.file.path.substr(7);
 	db.get('users').push(req.body).write();
 	res.redirect('/users');
 }
@@ -36,4 +39,10 @@ module.exports.find = function(req, res){
 	res.render('users/view', {
 		user : info
 	});
+}
+
+module.exports.remove = function(req, res,){
+	var id = req.params.id;
+	db.get('users').remove({id : id}).write();
+	res.redirect('/users');
 }

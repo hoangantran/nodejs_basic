@@ -50,3 +50,7 @@ ul li a:hover{
 .create{
 	margin-left: 30px;
 }
+
+.product{
+	word-break: break-all;
+}

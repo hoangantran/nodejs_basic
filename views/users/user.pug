@@ -13,6 +13,7 @@ block item
 			table.table
 				thead.thead-dark
 					tr
+						th(scope="col") Avatar
 						th(scope="col") Name
 						th(scope="col") Age
 						th(scope="col") Gender
@@ -21,18 +22,14 @@ block item
 				tbody
 					each user in users
 						tr
+							td
+								img(class="rounded-circle", src= user.avatar width="40px;" height="40px")
 							td= user.name
 							td= user.age
 							td= user.gender
 							td= user.phone
 							td
-								a(href='/users/' + user.id style="text-decoration:none") View
+								a(href='/users/' + user.id, style="text-decoration:none") View
 							td 
-								a(href="")
-									img(width="30px" height="30px" src="/images/remove.png")
-					  
-							
-			
-			    
-				
-			
+								a(href='/users/remove/' + user.id)
+									img(width="30px", height="30px", src="/images/remove.png")
