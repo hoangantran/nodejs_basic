@@ -3,26 +3,19 @@ var db = require('../db');
 var shortid = require('shortid');
 var md5 = require('md5');
 
+var Account = require('../models/login.model');
+
 module.exports.index = function(req, res){
 	res.render('login/index'); 
 }
 
-module.exports.signin = function(req, res){
+module.exports.signin = async function(req, res){
 	var username = req.body.username;
 	var password = md5(req.body.password);
-	var user = db.get('account').find({username : username}).value();
-
+	var user = await Account.find({username : username, password : password});
 	if(!user){
 		res.render('login/index',{
-			err: "Account not Exits",
-			values: req.body
-		});
-		return;
-	}
-
-	if(user.password !== password){
-		res.render('login/index',{
-			err: "Wrong password",
+			err: "Wrong Username or Password!!!",
 			values: req.body
 		});
 		return;

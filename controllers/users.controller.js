@@ -1,11 +1,13 @@
-var db = require('../db');
 var shortid = require('shortid');
 var multer  = require('multer');
 var upload = multer({ dest: './public/uploads/' });
 
-module.exports.index = function(req, res){
+var User = require('../models/users.model');
+
+module.exports.index = async function(req, res){
+	var users = await User.find();
 	res.render('users/user', {
-		users: db.get('users').value()
+		users: users
 	}); 
 }
 

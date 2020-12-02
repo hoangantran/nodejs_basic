@@ -1,0 +1,20 @@
+extends ../layout/template
+
+block item
+	div(class="row p-5 col-sm-12")
+		div.col-sm-2
+		div.col-sm-8
+			h2 Create User
+			if errors
+				each err in errors
+					.alert.alert-danger= err
+			form(method="post" action="/tranfer/create")
+				input(type="hidden", name="_csrf", value= csurfToken)
+				.form-group
+					label Account
+					input#exampleInputPassword1.form-control(type='text', name='account')
+				.form-group
+					label Money
+					input#exampleInputPassword1.form-control(type='number', name='money')
+				br
+				button.btn.btn-primary(type='submit') Tranfer

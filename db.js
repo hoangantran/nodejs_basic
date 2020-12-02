@@ -5,11 +5,7 @@ var adapter = new FileSync('db.json');
 
 var db = low(adapter);
 
-db.defaults({ users : [] })
+db.defaults({ users : [], products : [], account : [], sessions : [], tranfer : [] })
   .write();
-
-db.defaults({ account : [] })
-  .write();
-
 
 module.exports = db;

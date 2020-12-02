@@ -1,48 +1,54 @@
 require('dotenv').config();
 
+var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 
-var post = 3000;
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var md5 = require('md5');
-
+var shortid = require('shortid');
 var db = require('./db');
+var csurf = require('csurf');
+
+mongoose.connect(process.env.MONGO_URL);
+
 
 var userRoute = require('./routes/users.route');
-
 var loginRoute = require('./routes/login.route');
-
 var productRoute = require('./routes/products.route');
-
+var cartRoute = require('./routes/cart.route');
 var authMiddleware = require('./middleware/auth.middleware');
+var sessionMiddleware = require('./middleware/session.middleware');
+var cart = require('./middleware/cart.middleware');
+var tranferRoute = require('./routes/tranfer.route');
+
+var post = 3000;
 
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-var shortid = require('shortid');
-
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SIGNED_KEY));
+
 app.use(express.static('public'));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.get('/', function(req, res){
+app.get('/', sessionMiddleware.session, function(req, res){
 	res.render('index'); 
-});
-
-app.get('/contact', function(req, res){
-	res.render('pages/contact')
 });
 
 app.use('/login', loginRoute);
 
 app.use('/users', authMiddleware.auth, userRoute);
 
-app.use('/products', productRoute);
+app.use('/products', sessionMiddleware.session, cart.count, productRoute);
+
+app.use('/cart', cartRoute);
+
+app.use('/tranfer', authMiddleware.auth, tranferRoute);
 
 app.listen(post, () => {
 	console.log('hello ansama');
