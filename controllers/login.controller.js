@@ -1,5 +1,4 @@
 var express = require('express');
-var db = require('../db');
 var shortid = require('shortid');
 var md5 = require('md5');
 
@@ -8,11 +7,11 @@ var Account = require('../models/login.model');
 module.exports.index = function(req, res){
 	res.render('login/index'); 
 }
-
 module.exports.signin = async function(req, res){
 	var username = req.body.username;
 	var password = md5(req.body.password);
-	var user = await Account.find({username : username, password : password});
+	var user = await Account.findOne({ username : username, password : password });
+
 	if(!user){
 		res.render('login/index',{
 			err: "Wrong Username or Password!!!",
@@ -23,6 +22,7 @@ module.exports.signin = async function(req, res){
 	res.cookie('userId', user.id,{
 		signed : true
 	});
+
 	res.redirect('/users');
 }
 

@@ -1,18 +1,19 @@
 var express = require('express');
 var db = require('../db');
+var Session = require('../models/sessions.model');
 
-module.exports.addCart = function(req, res){
+module.exports.addCart = async function(req, res){
 	var sessionId = req.signedCookies.sessionId;
-	var productId = req.params.id;
-	
-	var count = db.get('sessions')
-					.find({id : sessionId})
-					.get('cart.' + productId);
+	var proId = req.params.id;
 
-	db.get('sessions')
-		.find({id : sessionId})
-		.set('cart.' + productId, count + 1 || 1)
-		.write();
+	Session.update(
+			{ sesId : sessionId },
+			{
+				$push: {
+					products : { proId : proId, qty : 1}
+				}
+			}
+		);
 
 	res.redirect('/products');
 }

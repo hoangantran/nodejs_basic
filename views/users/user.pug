@@ -3,11 +3,11 @@ extends ../layout/template
 block item
 	br
 	form.form-inline.col-sm-10(action="/users/search")
-		.form-group.mb-2.col-sm-10
-			input.form-control.col-sm-10(type='text', placeholder='Write keyword...', name='q', value= value)
+		.form-group.mb-2.col-sm-8
+			input.form-control(type='text', placeholder='Write keyword . . .', name='q', value= value, style="width: 100%")
 		button.btn.btn-primary.mb-2(type='submit') Search
-	div(class="row create")
-		a.btn.btn-primary(href="/users/create") Create User
+		span &nbsp
+		a.btn.btn-primary.mb-2(href="/users/create") Create User
 	div(class="row p-5")
 		div(class="table")
 			table.table
@@ -18,18 +18,16 @@ block item
 						th(scope="col") Age
 						th(scope="col") Gender
 						th(scope="col") Phone
-						th(scope="col", colspan="2")
+						th(scope="col")
 				tbody
 					each user in users
 						tr
 							td
-								img(class="rounded-circle", src= user.avatar width="40px;" height="40px")
+								img(class="rounded-circle", src="../"+user.avatar, width="40px;", height="40px")
 							td= user.name
 							td= user.age
 							td= user.gender
 							td= user.phone
-							td
-								a(href='/users/' + user.id, style="text-decoration:none") View
 							td 
 								a(href='/users/remove/' + user.id)
 									img(width="30px", height="30px", src="/images/remove.png")

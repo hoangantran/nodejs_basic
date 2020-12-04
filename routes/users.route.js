@@ -21,8 +21,6 @@ router.get('/create', controller.getCreate);
 
 router.post('/create', upload.single('avatar'), middleware.postCreate, controller.postCreate);
 
-router.get('/:id', controller.find);
-
 router.get('/remove/:id', controller.remove);
 
 module.exports = router;

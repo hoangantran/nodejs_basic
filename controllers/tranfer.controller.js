@@ -1,6 +1,5 @@
 var express = require('express');
-var db = require('../db');
-var shortid = require('shortid');
+var Tranfer = require('../models/tranfer.model');
 
 module.exports.index = function(req, res){
 	res.render('tranfer/tranfer',{
@@ -10,13 +9,10 @@ module.exports.index = function(req, res){
 
 module.exports.postCreate = function(req, res){
 	var data = {
-		id : shortid.generate(),
 		account : req.body.account,
 		money : parseInt(req.body.money),
 		userId : req.signedCookies.userId
 	}
-
-	db.get('tranfer').push(data).write();
-
+	Tranfer.create(data);
 	res.redirect('/tranfer');
 }
