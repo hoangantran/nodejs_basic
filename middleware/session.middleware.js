@@ -9,12 +9,7 @@ module.exports.session = function(req, res, next){
 		});
 		Session.create({
 			sesId : sessionId,
-			products : [
-				{
-					proId : "5fc5da14bb15823854bf2987",
-					qty: 1
-				}
-			]
+			products : []
 		});
 	}
 	next();

@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SIGNED_KEY));
 app.use(sessionMiddleware.session);
-/*app.use(csurf({cookie : true}));*/
+app.use(csurf({cookie : true}));
 app.use(express.static('public'));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
