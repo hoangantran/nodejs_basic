@@ -20,7 +20,8 @@ html
 					li(class="nav-item") 
 						a(class="nav-link", href="/login") Login
 					li(class="nav-item")
-						a(class="nav-link", href="#")= 'Cart('+ (count || 0) + ')'
+						a(class="nav-link", href="#")
+							p(style="color: orange")='Cart [ '+ count + ' ]'
 				if(user)
 					button(class="btn btn-outline-warning btn-download col-sm-1")= user.name
 	block item

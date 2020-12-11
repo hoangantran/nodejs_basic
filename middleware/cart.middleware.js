@@ -1,11 +1,13 @@
 var db = require('../db');
-
-module.exports.count = function(req, res, next){
+var Session = require('../models/sessions.model');
+module.exports.count = async function(req, res, next){
 	var sessionId = req.signedCookies.sessionId;
-	var products = db.get('sessions').find({id : sessionId}).get('cart').value();
 	var count = 0;
-	for (var i in products) {
-		 count += products[i];
+	var ses = await Session.find({ sesId : sessionId }, { products : 1}).exec();
+	for (var doc of ses) {
+		for (var i of doc.products){
+			count = count + i.qty;
+		}
 	}
 	res.locals.count = count;
 	next();

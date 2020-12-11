@@ -37,19 +37,19 @@ app.use(express.static('public'));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.get('/', function(req, res){
+app.get('/', cart.count, function(req, res){
 	res.render('index'); 
 });
 
-app.use('/login', loginRoute);
+app.use('/login', cart.count, loginRoute);
 
-app.use('/users', authMiddleware.auth, userRoute);
+app.use('/users', authMiddleware.auth, cart.count, userRoute);
 
 app.use('/products', cart.count, productRoute);
 
 app.use('/cart', cartRoute);
 
-app.use('/tranfer', authMiddleware.auth, tranferRoute);
+app.use('/tranfer', authMiddleware.auth, cart.count, tranferRoute);
 
 app.use('/api', productsApiRoute);
 
